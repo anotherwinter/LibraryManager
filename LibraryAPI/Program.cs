@@ -35,14 +35,16 @@ app.UseHttpsRedirection();
 
 app.MapGet("/Books", async (ApplicationContext context) =>
     {
-        await context.Books.ToListAsync();
+        var books = await context.Books.ToListAsync();
+        return Results.Ok(books);
     })
     .WithName("GetBooks")
     .WithOpenApi();
 
 app.MapGet("/Articles", async (ApplicationContext context) =>
     {
-        await context.Articles.ToListAsync();
+        var articles = await context.Articles.ToListAsync();
+        return Results.Ok(articles);
     })
     .WithName("GetArticles")
     .WithOpenApi();
