@@ -5,7 +5,7 @@ namespace LibraryWebApp.Services;
 
 public class LibraryApiService
 {
-    const string ApiURI = "someURI";
+    const string ApiURI = "http://localhost:5063";
     private HttpClient _client;
     public LibraryApiService(IHttpClientFactory httpClientFactory)
     {
