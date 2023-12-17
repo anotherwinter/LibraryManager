@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Веб-Бібліотека";
+    ViewData["Title"] = "";
 }
 
 <div class="text-center">
@@ -12,4 +12,5 @@
 @foreach (var book in Model._viewModel.Books)
 {
     <h1>@book.Name</h1>
+    <h1>@book.Year</h1>
 }

@@ -77,7 +77,7 @@ app.MapPost("/Articles/", async (ApplicationContext context, Article article) =>
     .WithName("PostArticle")
     .WithOpenApi();
 
-app.MapPut("/Books/{id}", async (ApplicationContext context, int id, Book inputBook) =>
+app.MapPut("/Book/{id}", async (ApplicationContext context, int id, Book inputBook) =>
     {
         var book = await context.Books.FindAsync(id);
 

@@ -1,0 +1,38 @@
+﻿@page "/Books/Edit/{id?}"
+@model EditBookModel
+@{
+    ViewData["Title"] = "Редагувати книгу";
+}
+
+<h1>Редагування книги</h1>
+<form method="post">
+    <input asp-for="@Model.inputBook.Id" />
+
+    <div class="form-group">
+        <label asp-for="@Model.inputBook.Name" />
+        <input asp-for="@Model.inputBook.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.inputBook.Year" />
+        <input asp-for="@Model.inputBook.Year" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.inputBook.Description" />
+        <textarea rows="20" cols="130" asp-for="@Model.inputBook.Description" class="form-control" maxlength="300"
+            placeholder="Текст, максимум 300 символів (враховуючи розмітку)"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.inputBook.TimesRated" />
+        <input asp-for="@Model.inputBook.TimesRated" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.inputBook.AverageRating" />
+        <input asp-for="@Model.inputBook.AverageRating" class="form-control" />
+    </div>
+
+    <button type="submit">Підтвердити</button>
+</form>
