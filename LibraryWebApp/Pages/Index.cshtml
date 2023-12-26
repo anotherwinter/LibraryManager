@@ -4,13 +4,41 @@
     ViewData["Title"] = "";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="mycontainer">
+    <div class="index-left">
+        <h2>Нові книги</h3>
+            <div class="card-container">
+                @foreach (var book in Model._viewModel.Books)
+                {
+
+<div class="card">
+  <a asp-page="Books/Details" asp-route-id="@book.Id">
+    <h3>@book.Name (@book.Year)</h3>
+    <h5>@(book.Description.Length > 60 ? book.Description.Substring(0, 60) + "..." : book.Description)</h5>
+  </a>
+  <h3 style="margin-top: auto;">Середня оцінка: @book.AverageRating/10</h3>
+  <a asp-page="Books/Edit" asp-route-id="@book.Id" class="btn btn-primary">Редагувати пост</a>
 </div>
 
-@foreach (var book in Model._viewModel.Books)
-{
-    <h1>@book.Name</h1>
-    <h1>@book.Year</h1>
-}
+                }
+            </div>
+
+    </div>
+
+    <div class="index-right">
+        <h2>Останні статті</h3>
+            <div class="card-container">
+                @foreach (var article in Model._viewModel.Articles)
+                {
+                    <a asp-page="Articles/Details" asp-route-id="@article.Id">
+                        <div class="card">
+                            <h3>@article.Title</h3>
+                            <h4>@(article.Text.Length > 60 ? article.Text.Substring(0, 60) + "..." :
+                                    article.Text)
+                            </h4>
+                        </div>
+                    </a>
+                }
+            </div>
+    </div>
+</div>

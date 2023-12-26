@@ -22,7 +22,7 @@ namespace LibraryWebApp.Pages.Books
         public async Task<IActionResult> OnGet(int id)
         {
             inputBook = await _service.GetBook(id);
-            return inputBook != null ? Page() : Redirect("/");
+            return inputBook != null ? Page() : NotFound();
         }
 
         public async Task<IActionResult> OnPost(int id)
@@ -34,7 +34,7 @@ namespace LibraryWebApp.Pages.Books
                 System.Console.WriteLine(inputBook.Id);
                 System.Console.WriteLine(id);
 
-                return Redirect("/");
+                return Redirect("/Index");
             }
 
             return NotFound();

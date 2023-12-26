@@ -1,0 +1,15 @@
+@page "/Books/{id?}"
+@model BookDetailsModel
+@{
+    ViewData["Title"] = @Model.book.Name;
+}
+
+<div style="margin: 3%;">
+    <div class="header">
+        <h1>@Model.book.Name</h1>
+        <a asp-page="Edit" asp-route-id="@Model.book.Id" class="btn btn-primary">Редагувати</a>
+    </div>
+    <h3>Рік видання: @Model.book.Year</h3>
+    <h3>@Model.book.Description</h3>
+    <h2>Середня оцінка: @Model.book.AverageRating/10 (@Model.book.TimesRated оцінок)</h3>
+</div>

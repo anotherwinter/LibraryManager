@@ -5,21 +5,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LibraryWebApp.Pages.Books
 {
-    public class BooksIndexModel : PageModel
+    public class BookDetailsModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly LibraryApiService _service;
-        public List<Book>? Books;
+        public Book? book;
 
-        public BooksIndexModel(ILogger<IndexModel> logger, LibraryApiService service)
+        public BookDetailsModel(ILogger<IndexModel> logger, LibraryApiService service)
         {
             _logger = logger;
             _service = service;
         }
 
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet(int id)
         {
-            Books = (await _service.GetBooks())?.ToList();
+            book = await _service.GetBook(id);
+            return book != null ? Page() : NotFound();
         }
     }
 }
