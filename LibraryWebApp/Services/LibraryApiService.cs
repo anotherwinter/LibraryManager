@@ -80,7 +80,7 @@ public class LibraryApiService
 
     public async Task CreateBook(Book book)
     {
-        await _client.PostAsJsonAsync(ApiURI + $"/Book/", book);
+        await _client.PostAsJsonAsync(ApiURI + $"/Books/", book);
     }
 
     public async Task CreateArticle(Article article)

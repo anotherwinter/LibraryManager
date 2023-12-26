@@ -7,34 +7,39 @@
 <div style="margin: 30px;">
     <h1>Редагування книги</h1>
     <form method="post">
-        <input type="hidden" asp-for="@Model.inputBook.Id" />
+        <input type="hidden" asp-for="@Model.InputBook.Id" />
 
         <div class="form-group">
-            <label asp-for="@Model.inputBook.Name" />
-            <input asp-for="@Model.inputBook.Name" class="form-control" />
+            <label asp-for="@Model.InputBook.Name" />
+            <input asp-for="@Model.InputBook.Name" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.inputBook.Year" />
-            <input asp-for="@Model.inputBook.Year" class="form-control" />
+            <label asp-for="@Model.InputBook.Year" />
+            <input asp-for="@Model.InputBook.Year" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.inputBook.Description" />
-            <textarea rows="20" cols="130" asp-for="@Model.inputBook.Description" class="form-control" maxlength="300"
+            <label asp-for="@Model.InputBook.Description" />
+            <textarea rows="20" cols="130" asp-for="@Model.InputBook.Description" class="form-control" maxlength="300"
                 placeholder="Текст, максимум 300 символів (враховуючи розмітку)"></textarea>
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.inputBook.TimesRated" />
-            <input asp-for="@Model.inputBook.TimesRated" class="form-control" />
+            <label asp-for="@Model.InputBook.TimesRated" />
+            <input asp-for="@Model.InputBook.TimesRated" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.inputBook.AverageRating" />
-            <input asp-for="@Model.inputBook.AverageRating" class="form-control" />
+            <label asp-for="@Model.InputBook.AverageRating" />
+            <input asp-for="@Model.InputBook.AverageRating" class="form-control" />
         </div>
 
         <button type="submit">Підтвердити</button>
+    </form>
+
+    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
+        <input type="hidden" name="id" value="@Model.InputBook.Id" />
+        <button type="submit" class="btn btn-danger">Видалити статтю</button>
     </form>
 </div>

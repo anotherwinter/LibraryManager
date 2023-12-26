@@ -1,0 +1,14 @@
+@page "/Articles/{id?}"
+@model ArticleDetailsModel
+@{
+    ViewData["Title"] = @Model.article.Title;
+}
+
+<div style="margin: 3%;">
+    <div class="header">
+        <h1>@Model.article.Title</h1>
+        <h7 style="color: rgb(80, 78, 78);">@Model.article.Date</h7>
+        <a asp-page="Edit" asp-route-id="@Model.article.Id" class="btn btn-primary">Редагувати</a>
+    </div>
+    <h3>@Model.article.Text</h3>
+</div>

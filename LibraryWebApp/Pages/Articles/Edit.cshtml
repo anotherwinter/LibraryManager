@@ -1,0 +1,30 @@
+﻿@page "/Articles/Edit/{id?}"
+@model EditArticleModel
+@{
+    ViewData["Title"] = "Редагувати статтю";
+}
+
+<div style="margin: 30px;">
+    <h1>Редагування статті</h1>
+    <form method="post">
+        <input type="hidden" asp-for="@Model.InputArticle.Id" />
+
+        <div class="form-group">
+            <label asp-for="@Model.InputArticle.Title" />
+            <input asp-for="@Model.InputArticle.Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.InputArticle.Text" />
+            <textarea rows="20" cols="130" asp-for="@Model.InputArticle.Text" class="form-control" maxlength="500"
+                placeholder="Текст, максимум 500 символів (враховуючи розмітку)"></textarea>
+        </div>
+
+        <button type="submit">Підтвердити</button>
+    </form>
+
+    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
+        <input type="hidden" name="id" value="@Model.InputArticle.Id" />
+        <button type="submit" class="btn btn-danger">Видалити статтю</button>
+    </form>
+</div>

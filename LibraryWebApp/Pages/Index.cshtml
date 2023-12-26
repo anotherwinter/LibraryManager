@@ -6,39 +6,44 @@
 
 <div class="mycontainer">
     <div class="index-left">
-        <h2>Нові книги</h3>
-            <div class="card-container">
-                @foreach (var book in Model._viewModel.Books)
-                {
-
-<div class="card">
-  <a asp-page="Books/Details" asp-route-id="@book.Id">
-    <h3>@book.Name (@book.Year)</h3>
-    <h5>@(book.Description.Length > 60 ? book.Description.Substring(0, 60) + "..." : book.Description)</h5>
-  </a>
-  <h3 style="margin-top: auto;">Середня оцінка: @book.AverageRating/10</h3>
-  <a asp-page="Books/Edit" asp-route-id="@book.Id" class="btn btn-primary">Редагувати пост</a>
-</div>
-
-                }
-            </div>
-
-    </div>
-
-    <div class="index-right">
-        <h2>Останні статті</h3>
-            <div class="card-container">
-                @foreach (var article in Model._viewModel.Articles)
-                {
-                    <a asp-page="Articles/Details" asp-route-id="@article.Id">
-                        <div class="card">
-                            <h3>@article.Title</h3>
-                            <h4>@(article.Text.Length > 60 ? article.Text.Substring(0, 60) + "..." :
-                                    article.Text)
-                            </h4>
-                        </div>
+        <div class="header">
+            <h2>Нові книги</h2>
+            <a asp-page="Books/Add" class="btn btn-primary">Додати</a>
+        </div>
+        <div class="card-container">
+            @foreach (var book in Model._viewModel.Books)
+            {
+                <div class="card">
+                    <a asp-page="Books/Details" asp-route-id="@book.Id">
+                        <h3>@book.Name (@book.Year)</h3>
+                        <h5>@(book.Description.Length > 60 ? book.Description.Substring(0, 60) + "..." : book.Description)
+                        </h5>
                     </a>
-                }
-            </div>
+                    <h3 style="margin-top: auto;">Середня оцінка: @book.AverageRating/10</h3>
+                    <a asp-page="Books/Edit" asp-route-id="@book.Id" class="btn btn-primary">Редагувати пост</a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="index-right">
+        <div class="header">
+            <h2>Останні статті</h2>
+            <a asp-page="Articles/Add" class="btn btn-primary">Додати</a>
+        </div>
+        <div class="card-container">
+            @foreach (var article in Model._viewModel.Articles)
+            {
+                    <div class="card-small">
+                        <a asp-page="Articles/Details" asp-route-id="@article.Id">
+                        <div class="header">
+                            <h3>@article.Title</h3>
+                            <h7 style="color: rgb(80, 78, 78);">@article.Date</h7>
+                        </div>
+                        <h4>@(article.Text.Length > 60 ? article.Text.Substring(0, 60) + "..." : article.Text)
+                        </h4>
+                        </a>
+                    </div>
+            }
+        </div>
     </div>
 </div>

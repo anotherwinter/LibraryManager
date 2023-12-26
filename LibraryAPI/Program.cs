@@ -107,6 +107,7 @@ async Task<IResult> PostBook(ApplicationContext context, Book book)
 {
     context.Books.Add(book);
     await context.SaveChangesAsync();
+
     return TypedResults.Created($"/Books/{book.Id}", book);
 }
 

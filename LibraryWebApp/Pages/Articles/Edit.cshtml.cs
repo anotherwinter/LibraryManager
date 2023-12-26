@@ -3,17 +3,17 @@ using LibraryWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LibraryWebApp.Pages.Books
+namespace LibraryWebApp.Pages.Articles
 {
-    public class EditBookModel : PageModel
+    public class EditArticleModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly LibraryApiService _service;
 
         [BindProperty]
-        public Book? InputBook { get; set; }
+        public Article? InputArticle { get; set; }
 
-        public EditBookModel(ILogger<IndexModel> logger, LibraryApiService service)
+        public EditArticleModel(ILogger<IndexModel> logger, LibraryApiService service)
         {
             _logger = logger;
             _service = service;
@@ -21,15 +21,15 @@ namespace LibraryWebApp.Pages.Books
 
         public async Task<IActionResult> OnGet(int id)
         {
-            InputBook = await _service.GetBook(id);
-            return InputBook != null ? Page() : NotFound();
+            InputArticle = await _service.GetArticle(id);
+            return InputArticle != null ? Page() : NotFound();
         }
 
         public async Task<IActionResult> OnPost(int id)
         {
-            if (await _service.GetBook(id) is Book book && book != null)
+            if (await _service.GetArticle(id) is Article article && article != null)
             {
-                _service.UpdateBook(InputBook);
+                _service.UpdateArticle(InputArticle);
 
                 return Redirect("/Index");
             }
@@ -39,9 +39,9 @@ namespace LibraryWebApp.Pages.Books
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            if (await _service.GetBook(id) is Book book && book != null)
+            if (await _service.GetArticle(id) is Article article && article != null)
             {
-                await _service.DeleteBook(id);
+                await _service.DeleteArticle(id);
 
                 return Redirect("/Index");
             }
