@@ -10,29 +10,32 @@
         <input type="hidden" asp-for="@Model.InputBook.Id" />
 
         <div class="form-group">
-            <label asp-for="@Model.InputBook.Name" />
+            <label asp-for="@Model.InputBook.Name"></label>
             <input asp-for="@Model.InputBook.Name" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.InputBook.Year" />
-            <input asp-for="@Model.InputBook.Year" class="form-control" />
+            <label asp-for="@Model.InputBook.Year"></label>
+            <input type="text" asp-for="@Model.InputBook.Year" class="form-control" />
+            <span asp-validation-for="@Model.InputBook.Year" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.InputBook.Description" />
+            <label asp-for="@Model.InputBook.Description"></label>
             <textarea rows="20" cols="130" asp-for="@Model.InputBook.Description" class="form-control" maxlength="300"
                 placeholder="Текст, максимум 300 символів (враховуючи розмітку)"></textarea>
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.InputBook.TimesRated" />
-            <input asp-for="@Model.InputBook.TimesRated" class="form-control" />
+            <label asp-for="@Model.InputBook.TimesRated"></label>
+            <input type="text" asp-for="@Model.InputBook.TimesRated" class="form-control" />
+            <span asp-validation-for="@Model.InputBook.TimesRated" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="@Model.InputBook.AverageRating" />
+            <label asp-for="@Model.InputBook.AverageRating"></label>
             <input asp-for="@Model.InputBook.AverageRating" class="form-control" />
+            <span asp-validation-for="@Model.InputBook.AverageRating" class="text-danger"></span>
         </div>
 
         <button type="submit">Підтвердити</button>

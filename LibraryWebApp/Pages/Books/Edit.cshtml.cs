@@ -27,14 +27,19 @@ namespace LibraryWebApp.Pages.Books
 
         public async Task<IActionResult> OnPost(int id)
         {
-            if (await _service.GetBook(id) is Book book && book != null)
+            if (id != InputBook.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
             {
                 _service.UpdateBook(InputBook);
 
-                return Redirect("/Index");
+                return RedirectToPage("/Index");
             }
 
-            return NotFound();
+            return Page();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
@@ -43,7 +48,7 @@ namespace LibraryWebApp.Pages.Books
             {
                 await _service.DeleteBook(id);
 
-                return Redirect("/Index");
+                return RedirectToPage("/Index");
             }
 
             return NotFound();

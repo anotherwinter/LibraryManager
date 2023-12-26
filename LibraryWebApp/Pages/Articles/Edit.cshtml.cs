@@ -31,7 +31,7 @@ namespace LibraryWebApp.Pages.Articles
             {
                 _service.UpdateArticle(InputArticle);
 
-                return Redirect("/Index");
+                return RedirectToPage("/Index");
             }
 
             return NotFound();
@@ -43,7 +43,7 @@ namespace LibraryWebApp.Pages.Articles
             {
                 await _service.DeleteArticle(id);
 
-                return Redirect("/Index");
+                return RedirectToPage("/Index");
             }
 
             return NotFound();

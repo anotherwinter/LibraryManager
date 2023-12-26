@@ -28,7 +28,7 @@ namespace LibraryWebApp.Pages.Books
         {
             await _service.CreateBook(inputBook);
 
-            return Redirect("/Index");
+            return RedirectToPage("/Index");
         }
     }
 }

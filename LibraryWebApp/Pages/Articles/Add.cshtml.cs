@@ -32,7 +32,7 @@ namespace LibraryWebApp.Pages.Articles
 
                 await _service.CreateArticle(InputArticle);
 
-                return Redirect("/Index");
+                return RedirectToPage("/Index");
             }
 
             return Page();
