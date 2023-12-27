@@ -42,7 +42,7 @@ body {
 
 .card {
   display: flex;
-  width: 420px;
+  width: 400px;
   height: 220px;
   padding: 10px;
   border: 1px solid black;
