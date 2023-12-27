@@ -5,7 +5,14 @@
 }
 
 <div style="margin: 30px;">
-    <h1>Редагування книги</h1>
+    <div class="header">
+        <h1>Редагування книги</h1>
+        <form method="post" asp-page-handler="Delete"
+            onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
+            <input type="hidden" name="id" value="@Model.InputBook.Id" />
+            <button type="submit" class="btn btn-danger">Видалити книгу</button>
+        </form>
+    </div>
     <form method="post">
         <input type="hidden" asp-for="@Model.InputBook.Id" />
 
@@ -38,11 +45,7 @@
             <span asp-validation-for="@Model.InputBook.AverageRating" class="text-danger"></span>
         </div>
 
-        <button type="submit">Підтвердити</button>
-    </form>
-
-    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
-        <input type="hidden" name="id" value="@Model.InputBook.Id" />
-        <button type="submit" class="btn btn-danger">Видалити статтю</button>
+        <button type="submit" class="btn btn-success mx-auto d-flex align-items-center"
+            style="font-size: 24px;">Підтвердити</button>
     </form>
 </div>

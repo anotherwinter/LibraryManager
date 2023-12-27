@@ -26,7 +26,7 @@ namespace LibraryWebApp.Pages.Books
 
         public async Task<IActionResult> OnPost()
         {
-            await _service.CreateBook(inputBook);
+            await _service.CreateBook(inputBook!);
 
             return RedirectToPage("/Index");
         }

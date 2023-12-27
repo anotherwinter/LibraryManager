@@ -2,7 +2,8 @@ using LibraryAPI.Models;
 using LibraryWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace LibraryWebApp.Pages;
 
@@ -22,5 +23,10 @@ public class IndexModel : PageModel
     {
         _viewModel.Books = (await _service.GetBooks())?.ToList();
         _viewModel.Articles = (await _service.GetArticles())?.ToList();
+    }
+
+    public IActionResult OnGetSearch(string type, string searchString)
+    {
+        return RedirectToPage("/Search", new { type, searchString });
     }
 }

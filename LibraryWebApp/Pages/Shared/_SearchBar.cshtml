@@ -1,0 +1,7 @@
+@model SearchBarModel
+
+<form method="get" asp-page="/Search" asp-route-type="@Model.Type" asp-route-searchString="@Model.SearchString">
+        <select asp-for="Type" asp-items="Model.Types"></select>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Пошук" />
+</form>

@@ -28,7 +28,7 @@ namespace LibraryWebApp.Pages.Articles
         {
             if (ModelState.IsValid)
             {
-                InputArticle.Date = DateOnly.FromDateTime(DateTime.Now);
+                InputArticle!.Date = DateOnly.FromDateTime(DateTime.Now);
 
                 await _service.CreateArticle(InputArticle);
 

@@ -29,7 +29,7 @@ namespace LibraryWebApp.Pages.Articles
         {
             if (await _service.GetArticle(id) is Article article && article != null)
             {
-                _service.UpdateArticle(InputArticle);
+                _service.UpdateArticle(InputArticle!);
 
                 return RedirectToPage("/Index");
             }

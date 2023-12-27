@@ -25,9 +25,9 @@ namespace LibraryWebApp.Pages.Books
             return InputBook != null ? Page() : NotFound();
         }
 
-        public async Task<IActionResult> OnPost(int id)
+        public IActionResult OnPost(int id)
         {
-            if (id != InputBook.Id)
+            if (id != InputBook!.Id)
             {
                 return NotFound();
             }

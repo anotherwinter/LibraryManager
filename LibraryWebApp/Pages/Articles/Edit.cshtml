@@ -5,7 +5,14 @@
 }
 
 <div style="margin: 30px;">
-    <h1>Редагування статті</h1>
+    <div class="header">
+        <h1>Редагування статті</h1>
+        <form method="post" asp-page-handler="Delete"
+            onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
+            <input type="hidden" name="id" value="@Model.InputArticle.Id" />
+            <button type="submit" class="btn btn-danger">Видалити статтю</button>
+        </form>
+    </div>
     <form method="post">
         <input type="hidden" asp-for="@Model.InputArticle.Id" />
 
@@ -20,11 +27,7 @@
                 placeholder="Текст, максимум 500 символів (враховуючи розмітку)"></textarea>
         </div>
 
-        <button type="submit">Підтвердити</button>
-    </form>
-
-    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Ви впевнені, що хочете видалити пост?');">
-        <input type="hidden" name="id" value="@Model.InputArticle.Id" />
-        <button type="submit" class="btn btn-danger">Видалити статтю</button>
+        <button type="submit" class="btn btn-success mx-auto d-flex align-items-center"
+            style="font-size: 24px;">Підтвердити</button>
     </form>
 </div>
